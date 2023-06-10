@@ -1,0 +1,34 @@
+@startuml nodes
+
+skinparam scale 1024
+
+class Condition {}
+
+class ConditionIn {}
+
+class ConditionAnd {}
+
+class ConditionOr {}
+
+class ConditionValue {}
+
+class Query {}
+
+class Field {}
+
+class Value {}
+
+ConditionValue <|-- Query
+ConditionValue <|-- Field
+ConditionValue <|-- Value
+
+Condition <|-- ConditionAnd
+Condition <|-- ConditionOr
+Condition <|-- ConditionIn
+
+ConditionAnd "1" *-- "N" Condition
+ConditionOr "1" *-- "N" Condition
+
+ConditionIn "1" *-- "N" ConditionValue
+
+@enduml

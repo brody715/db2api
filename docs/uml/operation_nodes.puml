@@ -1,0 +1,20 @@
+@startuml operation_nodes
+
+skinparam scale 1024
+
+class Operation {}
+
+class Query {}
+
+class Update {}
+
+class Insert {}
+
+class Delete {}
+
+Operation <|-- Query
+Operation <|-- Update
+Operation <|-- Insert
+Operation <|-- Delete
+
+@enduml

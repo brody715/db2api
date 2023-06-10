@@ -1,0 +1,36 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: db2api
+  datasource:
+    url: jdbc:mysql://example.com:3307/test_db2api?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+db2api:
+  users:
+    - name: admin
+      token: "1234"
+      role: admin
+    - name: user_no
+      token: "1234"
+      role: "auth-test"
+
+  roles:
+    - name: admin
+      kind: admin
+    - name: auth-test
+      perms:
+        - table: test_table
+          query: false
+
+  tables:
+    - name: test_table
+      fields:
+        - name: id
+    - name: test_join
+      fields:
+        - name: id
